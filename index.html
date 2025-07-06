@@ -24,19 +24,16 @@
 <body>
   <canvas id="canvas"></canvas>
 
-  <script src="index.js"></script>
+  <script src="build/index.js"></script>
   <script>
     const canvas = document.getElementById("canvas");
 
-    const engine = Godot({
+    Godot({
       canvas: canvas,
-      // Эти два пути должны совпадать с названием файлов
-      wasmBinaryFile: "index.wasm",
-      executable: "index.pck"
-    });
-
-    engine.then(instance => {
-      instance.start(); // ← запускает игру
+      wasmBinaryFile: "build/index.wasm",
+      executable: "build/index.pck"
+    }).then(engine => {
+      engine.start();
     });
   </script>
 </body>
